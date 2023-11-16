@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ecf2f8;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+#testimonial-grid-container {
+    padding: 5% 3%;
+}
+
+/*All color are found in Style-guide*/
+#testimonial-1 {
+    background-color: #7541c8;
+    color: #ffffff;
+    position: relative; /*This is for making the quote relativa to this container and not the viewport. Quote is position as absolute*/
+    z-index: 0; /*This is the first layer*/
+}
+
+#testimonial-2 {
+    background-color: #48556a;
+    color: #ffffff;
+
+}
+
+#testimonial-3, #testimonial-5 {
+    background-color: #ffffff;
+    color: #48556a;
+}
+
+#testimonial-4 {
+    background-color: #19212e;
+    color: #ffffff;
+
+}
+
+
+.grid-item {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.2);
+    font-size: 13px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    z-index: 2;
+    position: relative;
+}
+
+.header img {
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 1px solid #7541c8;
+}
+
+.grid-item h4 {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.grid-item p {
+    opacity: 70%;
+}
+
+.header .name {
+    opacity: 100%;
+    font-size: 1rem;
+}
+
+#quote {
+    position: absolute; /*We set the quote as absolute, so is related to the viewport. We need to put the testimonial 1 as relative, so the quote goes relative to the container and not the viewport*/
+    right: 15%;
+    top: 0px;
+    z-index: 1; /*First layer: testimonial 1 card. Second layer: quote*/
+}
+
+/*Here we will do MOBILE FIRST, so everything that goes inside the media query is for desktop*/
+@media (min-width: 576px) {
+
+    #testimonial-grid-container, #main-left, #top, #bottom {
+        display: flex;
+    }
+
+    #top, #bottom {
+        flex-basis: 50%;
+    }
+
+    #testimonial-1, #testimonial-4 {
+        flex-basis: 65%;
+    }
+
+    #testimonial-2, #testimonial-3 {
+        flex-basis: 35%;
+
+    }
+
+    #testimonial-grid-container {
+        max-width: 1440px; /*We put this so the card doesnt get super big on lsrger desktops*/
+        margin: 0 auto;
+    }
+
+    #testimonial-5 {
+        flex-basis: 20%;
+    }
+
+    #main-left {
+        flex-direction: column;
+        flex-basis: 80%;
+    }
+
+    /*With this we select all the grid items div containers inside the main left container*/
+    #main-left .grid-item {
+        margin-right: 15px;
+    }
+
+
+}
